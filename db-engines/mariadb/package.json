@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-mariadb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "mariadb": "^3.4.0"
+  }
+}

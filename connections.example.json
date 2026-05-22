@@ -1,0 +1,73 @@
+{
+  "defaultEnv": "local-dev",
+  "environments": {
+    "local-dev": {
+      "description": "Primary local development databases on this machine.",
+      "aliases": ["develop", "development"],
+      "postgres": {
+        "databaseUrl": "postgresql://USER:PASSWORD@localhost:5432/DB_NAME"
+      },
+      "mongo": {
+        "mongoDbConnection": "mongodb://USER:PASSWORD@localhost:27017/"
+      },
+      "mysql": {
+        "connectionUrl": "mysql://USER:PASSWORD@localhost:3306/DB_NAME"
+      },
+      "mariadb": {
+        "connectionUrl": "mariadb://USER:PASSWORD@localhost:3306/DB_NAME"
+      },
+      "sqlserver": {
+        "connectionString": "Server=localhost,1433;Database=DB_NAME;User Id=USER;Password=PASSWORD;Encrypt=true;TrustServerCertificate=true;"
+      },
+      "sqlite": {
+        "filePath": "C:/path/to/database.sqlite"
+      },
+      "redis": {
+        "url": "redis://localhost:6379"
+      },
+      "elasticsearch": {
+        "nodeUrl": "http://localhost:9200"
+      },
+      "cassandra": {
+        "connectionJson": "{\"contactPoints\":[\"127.0.0.1\"],\"localDataCenter\":\"datacenter1\",\"keyspace\":\"your_keyspace\"}"
+      },
+      "neo4j": {
+        "connectionJson": "{\"uri\":\"bolt://localhost:7687\",\"username\":\"neo4j\",\"password\":\"PASSWORD\",\"database\":\"neo4j\"}"
+      }
+    },
+    "staging-readonly": {
+      "description": "Optional shared environment for non-production investigation.",
+      "aliases": ["staging", "stage"],
+      "postgres": {
+        "databaseUrl": "postgresql://USER:PASSWORD@HOST:5432/DB_NAME"
+      },
+      "mongo": {
+        "mongoDbConnection": "mongodb://USER:PASSWORD@HOST:27017/"
+      },
+      "mysql": {
+        "connectionUrl": "mysql://USER:PASSWORD@HOST:3306/DB_NAME"
+      },
+      "mariadb": {
+        "connectionUrl": "mariadb://USER:PASSWORD@HOST:3306/DB_NAME"
+      },
+      "sqlserver": {
+        "connectionString": "Server=HOST,1433;Database=DB_NAME;User Id=USER;Password=PASSWORD;Encrypt=true;TrustServerCertificate=true;"
+      },
+      "sqlite": {
+        "filePath": "C:/path/to/database.sqlite"
+      },
+      "redis": {
+        "url": "redis://HOST:6379"
+      },
+      "elasticsearch": {
+        "nodeUrl": "https://HOST:9200"
+      },
+      "cassandra": {
+        "connectionJson": "{\"contactPoints\":[\"HOST\"],\"localDataCenter\":\"datacenter1\",\"keyspace\":\"your_keyspace\"}"
+      },
+      "neo4j": {
+        "connectionJson": "{\"uri\":\"bolt://HOST:7687\",\"username\":\"neo4j\",\"password\":\"PASSWORD\",\"database\":\"neo4j\"}"
+      }
+    }
+  }
+}

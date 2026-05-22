@@ -1,0 +1,11 @@
+{
+  "name": "ai-db-investigator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "diagnose": "node scripts/diagnose.mjs",
+    "connection-options": "node scripts/connection-options.mjs",
+    "engine-options": "node scripts/engine-options.mjs",
+    "shell-help": "node scripts/shell-help.mjs"
+  }
+}

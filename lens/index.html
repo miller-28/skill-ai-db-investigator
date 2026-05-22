@@ -1,0 +1,229 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Lens — AI DB Investigator</title>
+	<meta name="description" content="Visual explorer for ai-db-investigator investigation sessions" />
+	<meta name="author" content="Jonathan Miller" />
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🔍</text></svg>">
+	<link rel="stylesheet" href="styles.css?v=20260521d">
+
+	<!-- Mermaid — ER diagram rendering -->
+	<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+	<!-- Marked — Markdown rendering -->
+	<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+</head>
+<body>
+<div class="app">
+
+	<!-- ── Header ──────────────────────────────────────────────────────── -->
+	<header class="header">
+		<div class="header-inner">
+			<div class="header-logo">🔍</div>
+			<div class="header-text">
+				<h1>Lens</h1>
+				<p>AI DB Investigator — Visual Explorer</p>
+			</div>
+		</div>
+	</header>
+
+	<!-- ── Toolbar ─────────────────────────────────────────────────────── -->
+<!-- ── Toolbar ─────────────────────────────────────────────────────── -->
+<div class="toolbar">
+<!-- Two-row grid: row 1 = labels, row 2 = controls all on the same baseline -->
+<div class="toolbar-grid">
+<!-- Row 1 – field labels (empty spans for button columns) -->
+<span></span>
+<label for="env-select" class="field-label">Environment</label>
+<span></span>
+<label for="engine-select" class="field-label">DB Engine</label>
+<span></span>
+<span></span>
+<!-- Row 2 – all interactive controls share the same baseline -->
+<button class="btn btn-primary" id="btn-open-folder">
+<span>📂</span> Open Project Root
+</button>
+<select id="env-select" disabled>
+<option value="">— select env —</option>
+</select>
+<span class="selector-arrow">›</span>
+<select id="engine-select" disabled>
+<option value="">— select engine —</option>
+</select>
+<button class="btn btn-ghost" id="btn-refresh" disabled title="Reload sessions">
+<span>↺</span> Refresh
+</button>
+					<button class="btn btn-danger-ghost hidden" id="btn-clear-storage" title="Clear saved project root and return to landing screen">
+						✕ Clear Root
+</button>
+</div>
+
+<div class="toolbar-status" id="toolbar-status">No folder opened</div>
+</div>
+
+	<!-- ── Main ────────────────────────────────────────────────────────── -->
+	<main class="main" id="main">
+
+		<!-- Landing state -->
+		<div class="landing" id="landing">
+			<div class="landing-icon">🔍</div>
+			<h2>Welcome to Lens</h2>
+			<p>
+				Select your <code>ai-db-investigator</code> project root once —
+				Lens remembers it and loads automatically on every visit after that.
+			</p>
+			<button class="btn btn-primary btn-large" id="btn-open-landing">
+				<span>📂</span> Open Project Root
+			</button>
+
+			<div class="detected-path-note hidden" id="detected-path-note">
+				<span class="detected-path-label">Auto-detected root:</span>
+				<code id="detected-path-text"></code>
+			</div>
+
+			<div class="resume-section hidden" id="resume-section">
+				<div class="resume-divider">or resume your last session</div>
+				<button class="btn btn-ghost" id="btn-resume-folder">📂 Resume…</button>
+			</div>
+
+			<p class="landing-note">Requires Chrome or Edge (File System Access API).</p>
+		</div>
+
+		<!-- Content — shown after folder + env + engine selected -->
+		<div class="content hidden" id="content">
+
+			<!-- Left sidebar: sessions navigation only -->
+			<aside class="left-panel">
+				<div class="panel-section sessions-section">
+					<div class="panel-section-header">
+						<span class="section-icon">📁</span>
+						<span class="section-title">Sessions</span>
+						<span class="badge" id="sessions-count">0</span>
+					</div>
+					<div class="panel-section-body sessions-body" id="sessions-list">
+						<span class="empty-msg">Select an engine to load sessions.</span>
+					</div>
+				</div>
+			</aside>
+
+			<!-- Main panel: tabbed context + session detail -->
+			<section class="main-panel">
+
+				<!-- Tab bar -->
+				<nav class="tab-bar" role="tablist">
+					<button class="tab-btn active" data-tab="schema" role="tab" aria-selected="true">
+						<span>📊</span> Schema
+					</button>
+					<button class="tab-btn" data-tab="entity-map" role="tab" aria-selected="false">
+						<span>🗺️</span> Entity Map
+					</button>
+					<button class="tab-btn" data-tab="db-profile" role="tab" aria-selected="false">
+						<span>🛢️</span> DB Profile
+					</button>
+					<button class="tab-btn hidden" data-tab="session" id="tab-btn-session" role="tab" aria-selected="false">
+						<span>📄</span> <span id="tab-session-label">Session</span>
+					</button>
+				</nav>
+
+				<!-- Schema diagram tab -->
+				<div class="tab-pane" id="tab-schema" role="tabpanel">
+					<div class="schema-viewer" id="schema-viewer">
+						<div class="schema-toolbar">
+							<button class="schema-tool-btn" id="schema-zoom-out" title="Zoom out">−</button>
+							<span class="schema-zoom-value" id="schema-zoom-value">100%</span>
+							<button class="schema-tool-btn" id="schema-zoom-in" title="Zoom in">+</button>
+							<button class="schema-tool-btn" id="schema-zoom-reset" title="Reset zoom to 100%">Reset Zoom</button>
+							<button class="schema-tool-btn" id="schema-fullscreen-open" title="Open fullscreen">Fullscreen</button>
+						</div>
+						<div id="schema-default-canvas">
+							<div class="mermaid-wrap" id="schema-diagram">
+								<span class="empty-msg">Select an engine to load schema.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Entity map tab -->
+				<div class="tab-pane hidden" id="tab-entity-map" role="tabpanel">
+					<div class="markdown-body" id="entity-map-content">
+						<span class="empty-msg">No entity-map.md found.</span>
+					</div>
+				</div>
+
+				<!-- DB Profile tab -->
+				<div class="tab-pane hidden" id="tab-db-profile" role="tabpanel">
+					<div class="markdown-body" id="db-profile-content">
+						<span class="empty-msg">No database-profile.md found.</span>
+					</div>
+				</div>
+
+				<!-- Session detail tab -->
+				<div class="tab-pane hidden" id="tab-session" role="tabpanel">
+
+					<!-- Placeholder -->
+					<div class="detail-placeholder" id="detail-placeholder">
+						<span class="placeholder-icon">👈</span>
+						<p>Select a session from the list</p>
+					</div>
+
+					<!-- Detail content -->
+					<div class="detail-content hidden" id="detail-content">
+
+						<!-- Session meta header -->
+						<div class="detail-header">
+							<div class="detail-session-meta" id="detail-session-meta"></div>
+						</div>
+
+						<!-- Investigation report -->
+						<div class="detail-section">
+							<div class="detail-section-label">
+								<span>📄</span> Investigation Report
+							</div>
+							<div class="markdown-body report-body" id="report-body"></div>
+						</div>
+
+						<!-- Query files -->
+						<div class="detail-section" id="queries-section">
+							<div class="detail-section-label">
+								<span>🗄️</span> Queries
+								<span class="badge" id="queries-count">0</span>
+							</div>
+							<div id="queries-list"></div>
+						</div>
+
+					</div>
+				</div><!-- /tab-session -->
+
+			</section>
+
+		</div><!-- /content -->
+	</main>
+
+	<!-- ── Footer ──────────────────────────────────────────────────────── -->
+	<footer class="footer">
+		Crafted with intention by
+		<a href="mailto:jonathan@miller28.com">Jonathan Miller</a> •
+		<a href="https://www.linkedin.com/in/miller28/" target="_blank" rel="noopener noreferrer">LinkedIn</a> •
+		AI DB Investigator — Lens
+	</footer>
+
+	<div class="schema-fullscreen-overlay hidden" id="schema-fullscreen-overlay">
+		<div class="schema-fullscreen-shell">
+			<div class="schema-fullscreen-toolbar">
+				<div class="schema-floating-zoom">
+					<button class="schema-tool-btn" id="schema-fs-zoom-out" title="Zoom out">−</button>
+					<span class="schema-zoom-value" id="schema-fs-zoom-value">100%</span>
+					<button class="schema-tool-btn" id="schema-fs-zoom-in" title="Zoom in">+</button>
+					<button class="schema-tool-btn" id="schema-fs-zoom-reset" title="Reset zoom to 100%">Reset Zoom</button>
+				</div>
+				<button class="schema-fs-close-btn" id="schema-fullscreen-close" title="Close fullscreen">Close</button>
+			</div>
+			<div class="schema-fullscreen-canvas" id="schema-fullscreen-canvas"></div>
+		</div>
+	</div>
+
+</div><!-- /app -->
+<script src="app.js?v=20260521d"></script>
+</body>
+</html>

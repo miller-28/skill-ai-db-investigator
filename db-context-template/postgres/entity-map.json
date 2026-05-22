@@ -1,0 +1,6 @@
+{
+  "$schema": "../../schemas/entity-map.schema.json",
+  "schemaVersion": 1,
+  "engine": "postgres",
+  "entities": {}
+}

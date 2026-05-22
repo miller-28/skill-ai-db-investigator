@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-cassandra",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "cassandra-driver": "^4.7.2"
+  }
+}

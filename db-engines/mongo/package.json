@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-mongo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "mongodb": "^6.12.0"
+  }
+}

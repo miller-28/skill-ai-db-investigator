@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-redis",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "redis": "^4.7.0"
+  }
+}

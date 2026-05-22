@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-sqlite",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1"
+  }
+}

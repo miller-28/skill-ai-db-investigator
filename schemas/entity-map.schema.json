@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "schemaVersion": { "type": "number" },
+    "engine": { "type": "string" },
+    "entities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "primaryKey": { "type": "string" },
+          "importantColumns": { "type": "array", "items": { "type": "string" } },
+          "outboundRelations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "column": { "type": "string" },
+                "references": { "type": "string" }
+              }
+            }
+          },
+          "inboundRelations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "table": { "type": "string" },
+                "column": { "type": "string" }
+              }
+            }
+          },
+          "investigationHints": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["confirmed_fk", "confirmed_query", "inferred", "suspected"]
+          }
+        }
+      }
+    }
+  }
+}

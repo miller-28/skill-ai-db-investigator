@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-neo4j",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "neo4j-driver": "^5.28.1"
+  }
+}

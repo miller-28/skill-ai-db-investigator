@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-elasticsearch",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.17.0"
+  }
+}

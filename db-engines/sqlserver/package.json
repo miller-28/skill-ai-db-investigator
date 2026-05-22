@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-sqlserver",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "mssql": "^11.0.1"
+  }
+}

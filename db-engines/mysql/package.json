@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-mysql",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "mysql2": "^3.14.1"
+  }
+}

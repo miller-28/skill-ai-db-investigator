@@ -1,0 +1,11 @@
+{
+  "name": "db-investigation-tool-postgres",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "query": "node query.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}
