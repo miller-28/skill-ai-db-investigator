@@ -1,5 +1,10 @@
 # ai-db-investigator
 
+[![skills.sh](https://img.shields.io/badge/skills.sh-ai--db--investigator-0f172a?style=for-the-badge)](https://www.skills.sh)
+[![github-last-commit](https://img.shields.io/github/last-commit/miller-28/skill-ai-db-investigator?style=for-the-badge&color=0ea5e9)](https://github.com/miller-28/skill-ai-db-investigator/commits)
+[![engines](https://img.shields.io/badge/engines-10-22c55e?style=for-the-badge)](https://github.com/miller-28/skill-ai-db-investigator/tree/main/db-engines)
+[![read-only](https://img.shields.io/badge/mode-read--only-f59e0b?style=for-the-badge)](https://github.com/miller-28/skill-ai-db-investigator/blob/main/SKILL.md)
+[![agent-ready](https://img.shields.io/badge/agent-ready-6366f1?style=for-the-badge)](https://github.com/miller-28/skill-ai-db-investigator/blob/main/SKILL.md)
 [![repo](https://img.shields.io/badge/repo-miller--28%2Fskill--ai--db--investigator-0a0a0a)](https://github.com/miller-28/skill-ai-db-investigator)
 
 ai-db-investigator is a read-only database investigation protocol for AI agents and engineers. It helps answer hard data questions quickly, safely, and repeatably across many database engines while building useful investigation memory over time.
