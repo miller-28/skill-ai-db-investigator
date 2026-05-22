@@ -5,7 +5,7 @@ Read-only Cassandra investigations via `query.mjs`.
 Usage:
 
 ```bash
-cd ai-db-investigator/db-engines/cassandra
+cd skill-ai-db-investigator/db-engines/cassandra
 npm install
 node query.mjs --env local-dev --file ./tmp-audit.cql
 ```

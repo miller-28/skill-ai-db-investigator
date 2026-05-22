@@ -5,7 +5,7 @@ Read-only MySQL investigations via `query.mjs`.
 Usage:
 
 ```bash
-cd ai-db-investigator/db-engines/mysql
+cd skill-ai-db-investigator/db-engines/mysql
 npm install
 node query.mjs --env local-dev --file ./tmp-audit.sql
 ```

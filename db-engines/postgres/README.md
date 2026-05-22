@@ -9,7 +9,7 @@ Context model:
 From the bridge root, run `node scripts/diagnose.mjs` once per session for OS-specific invocation hints.
 
 ```bash
-cd ai-db-investigator/db-engines/postgres
+cd skill-ai-db-investigator/db-engines/postgres
 npm install
 
 node query.mjs 'SELECT current_database()'

@@ -15,7 +15,7 @@ Visual browser for `ai-db-investigator` investigation sessions.
 Open `lens/index.html` directly in **Chrome** or **Edge** (File System Access API required):
 
 ```
-Open File → ai-db-investigator/lens/index.html
+Open File → skill-ai-db-investigator/lens/index.html
 ```
 
 Or serve from the project root with any static server:

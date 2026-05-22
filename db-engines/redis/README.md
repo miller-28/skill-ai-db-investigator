@@ -5,7 +5,7 @@ Read-only Redis investigations via `query.mjs`.
 Usage:
 
 ```bash
-cd ai-db-investigator/db-engines/redis
+cd skill-ai-db-investigator/db-engines/redis
 npm install
 node query.mjs --env local-dev info server
 ```

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Entry point: print OS / shell hints and safe invocation patterns for ai-db-investigator.
- * Run from repo root: `node ai-db-investigator/scripts/diagnose.mjs`
+ * Run from repo root: `node skill-ai-db-investigator/scripts/diagnose.mjs`
  * Or from bridge root: `node scripts/diagnose.mjs` / `npm run diagnose`
  */
 import { existsSync } from 'fs';

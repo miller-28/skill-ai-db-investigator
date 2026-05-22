@@ -7,7 +7,7 @@ Context model:
 - `db-context/<env>/mongo/` is the runtime context store (gitignored, auto-seeded by `query.mjs`).
 
 ```bash
-cd ai-db-investigator/db-engines/mongo
+cd skill-ai-db-investigator/db-engines/mongo
 npm install
 
 node query.mjs listDbs

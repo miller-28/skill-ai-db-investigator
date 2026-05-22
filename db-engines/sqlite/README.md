@@ -5,7 +5,7 @@ Read-only SQLite investigations via `query.mjs`.
 Usage:
 
 ```bash
-cd ai-db-investigator/db-engines/sqlite
+cd skill-ai-db-investigator/db-engines/sqlite
 npm install
 node query.mjs --env local-dev --file ./tmp-audit.sql
 ```

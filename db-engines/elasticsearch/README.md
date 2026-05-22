@@ -5,7 +5,7 @@ Read-only Elasticsearch/OpenSearch investigations via `query.mjs`.
 Usage:
 
 ```bash
-cd ai-db-investigator/db-engines/elasticsearch
+cd skill-ai-db-investigator/db-engines/elasticsearch
 npm install
 node query.mjs --env local-dev info
 node query.mjs --env local-dev catIndices
