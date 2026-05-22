@@ -148,14 +148,14 @@ npx skills add miller-28/skill-ai-db-investigator --list
 Install the skill:
 
 ```bash
-npx skills add miller-28/skill-ai-db-investigator --skill ai-db-investigator
+npx skills add miller-28/skill-ai-db-investigator --skill skill-ai-db-investigator
 ```
 
 Install for specific agents:
 
 ```bash
-npx skills add miller-28/skill-ai-db-investigator --skill ai-db-investigator --agent github-copilot
-npx skills add miller-28/skill-ai-db-investigator --skill ai-db-investigator --agent cursor
+npx skills add miller-28/skill-ai-db-investigator --skill skill-ai-db-investigator --agent github-copilot
+npx skills add miller-28/skill-ai-db-investigator --skill skill-ai-db-investigator --agent cursor
 ```
 
 ## Download and install for projects
@@ -171,13 +171,13 @@ Then install it into each project where you want to use the skill.
 For a Cursor project (run inside that project folder):
 
 ```bash
-npx skills add ../skill-ai-db-investigator --skill ai-db-investigator --agent cursor
+npx skills add ../skill-ai-db-investigator --skill skill-ai-db-investigator --agent cursor
 ```
 
 For a VS Code project (run inside that project folder):
 
 ```bash
-npx skills add ../skill-ai-db-investigator --skill ai-db-investigator --agent github-copilot
+npx skills add ../skill-ai-db-investigator --skill skill-ai-db-investigator --agent github-copilot
 ```
 
 If the repository is not adjacent to your project, replace `../skill-ai-db-investigator` with the correct absolute or relative path.
@@ -185,8 +185,8 @@ If the repository is not adjacent to your project, replace `../skill-ai-db-inves
 You can also install directly from GitHub without cloning:
 
 ```bash
-npx skills add miller-28/skill-ai-db-investigator --skill ai-db-investigator --agent cursor
-npx skills add miller-28/skill-ai-db-investigator --skill ai-db-investigator --agent github-copilot
+npx skills add miller-28/skill-ai-db-investigator --skill skill-ai-db-investigator --agent cursor
+npx skills add miller-28/skill-ai-db-investigator --skill skill-ai-db-investigator --agent github-copilot
 ```
 
 ## Supported connection fields
