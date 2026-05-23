@@ -106,6 +106,11 @@ Open lens/index.html in Chrome or Edge to review investigations visually:
 - live Mermaid schema rendering
 - entity-map and database-profile side panels
 
+<img width="1918" height="885" alt="image" src="https://github.com/user-attachments/assets/186011eb-504b-4253-a78e-6566b7ca13aa" />
+
+<img width="1918" height="847" alt="image" src="https://github.com/user-attachments/assets/5cbcaaa9-d2aa-41fa-95db-797d93702dca" />
+
+
 No server or build step required.
 
 ## Who should use this
